@@ -4,12 +4,12 @@ from .models import Car
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ('brand', 'model', 'body_serial', 'engine_serial', 'category', 'price')
+        fields = ('marca', 'modelo', 'serial_carroceria', 'serial_motor', 'categoria', 'precio')
         widgets = {
-            'brand': forms.Select(attrs={'class': 'form-control'}),
-            'model': forms.TextInput(attrs={'class': 'form-control'}),
-            'body_serial': forms.TextInput(attrs={'class': 'form-control'}),
-            'engine_serial': forms.TextInput(attrs={'class': 'form-control'}),
-            'category': forms.Select(attrs={'class': 'form-control'}),
-            'price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'marca': forms.Select(attrs={'class': 'form-control'}),
+            'modelo': forms.TextInput(attrs={'class': 'form-control'}),
+            'serial_carroceria': forms.TextInput(attrs={'class': 'form-control'}),
+            'serial_motor': forms.TextInput(attrs={'class': 'form-control'}),
+            'categoria': forms.Select(attrs={'class': 'form-control'}),
+            'precio': forms.NumberInput(attrs={'class': 'form-control'}),
         }
