@@ -1,0 +1,81 @@
+/*
+.formulario{
+    border: 2px solid rgb(0, 0, 0)!important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+*/
+
+.nav{
+    background-color: #14274E !important;
+}
+
+body{
+    background-color: #F1F6F9 !important;
+}
+
+.container {
+    max-width: 400px;
+}
+
+.formulario {
+    color: #F1F6F9;
+    background-color: #394867;
+    border-radius: 30px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.formulario form {
+    padding: 20px;
+}
+
+.formulario .mb-3 {
+    margin-bottom: 20px;
+}
+
+.formulario .btn-primary {
+    width: 100%;
+}
+
+/* Estilos específicos para los campos del formulario */
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="number"],
+.formulario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.formulario input[type="text"]:focus,
+.formulario input[type="email"]:focus,
+.formulario input[type="number"]:focus,
+.formulario select:focus {
+    border-color: #888;
+}
+
+/* Estilos específicos para las etiquetas de los campos */
+.formulario label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+
+.formulario .invalid-feedback {
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 992px) {
+    .formulario form {
+        padding: 10px;
+    }
+
+    .formulario .mb-3 {
+        margin-bottom: 10px;
+    }
+}
