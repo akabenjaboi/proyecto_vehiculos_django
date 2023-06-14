@@ -1,4 +1,9 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+
+def no_negative_validator(value):
+    if value < 0:
+        raise ValidationError('El número no puede ser negativo.')
 
 class Car(models.Model):
     BRAND_CHOICES = (
@@ -19,9 +24,9 @@ class Car(models.Model):
     serial_carroceria = models.CharField(max_length=50)
     serial_motor = models.CharField(max_length=50)
     categoria = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Particular')
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    precio = models.IntegerField(validators=[no_negative_validator])
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return f"{self.brand} {self.model}"
+        return f"{self.marca} {self.modelo}"
