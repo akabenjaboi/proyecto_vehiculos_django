@@ -6,11 +6,11 @@
 }
 */
 
-.nav{
+.nav {
     background-color: #14274E !important;
 }
 
-body{
+body {
     background-color: #F1F6F9 !important;
 }
 
@@ -79,3 +79,13 @@ body{
         margin-bottom: 10px;
     }
 }
+
+
+#hola{
+    font-size: 18px;
+    color: #F1F6F9;
+    margin-right: 20px;
+}
+
+/* Estilo para formulario crear usuario */
+

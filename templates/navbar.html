@@ -41,9 +41,9 @@
                         <a class="nav-link active text-white" aria-current="page" href="/vehiculos/list/">Listar</a>
                     </li>
                 </ul>
-                <a href="/iniciar_sesion/" class="btn btn-light mx-2" tabindex="-1" role="button" aria-disabled="true">Iniciar Sesion</a>
-                <a href="/registrar/" class="btn btn-light mx-2" tabindex="-1" role="button" aria-disabled="true">Registrar</a>
                 
+                <span id = "hola">Hola, {{request.user}} </span>
+                <span id = "hola"><a href="{% url 'logout' %}">Cerrar sesion</a></span>
             </div>
         </div>
     </nav>

@@ -1,8 +1,68 @@
-{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-{% load static %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<h1>Iniciar sesion</h1>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- hoja de estilos propia -->
+    {% load static %}
+    <link rel="icon" type="image/jpg" href="{% static 'img/favicon.png' %}" />
 
-{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+    <title>Digimon</title>
+</head>
+
+    <h1>Iniciar sesion</h1>
+
+
+    <div class="container text-center">
+        <form method="POST" action="" class="needs-validation" novalidate>
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="id_username">Nombre de usuario</label>
+                <input type="text" class="form-control" id="id_username" name="username" required>
+                <div class="invalid-feedback">
+                    Por favor, introduce un nombre de usuario.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_password1">Contraseña</label>
+                <input type="password" class="form-control" id="id_password1" name="password" required>
+                <div class="invalid-feedback">
+                    Por favor, introduce una contraseña.
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Iniciar sesion</button>
+        </form>
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %}
+
+        <div class="mt-4">
+            <div class="d-flex justify-content-center links">¿Aun no tienes una cuenta?<a href="{%  url 'registrar' %}" class="ml-2">Registrarse</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootsrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
+</html>
