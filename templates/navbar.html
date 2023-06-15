@@ -34,9 +34,11 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="/inicio/">Inicio</a>
                     </li>
+                    {% if request.user.is_staff %}
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="/vehiculos/add/">Agregar</a>
                     </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="/vehiculos/list/">Listar</a>
                     </li>

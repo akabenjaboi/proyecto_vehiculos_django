@@ -60,6 +60,9 @@
 
         <button type="submit" class="btn btn-primary mt-2">Crear Usuario</button>
     </form>
+    {% for message in messages %}
+        <p id="messages">{{message}}</p>
+    {% endfor %}
     <div class="mt-4">
         <div class="d-flex justify-content-center links">¿Ya tienes una cuenta?<a href="{% url 'iniciar_sesion' %}" class="ml-2">Iniciar sesion</a>
         </div>

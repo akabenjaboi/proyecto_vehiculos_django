@@ -3,28 +3,36 @@ from django.http import HttpResponse
 from .forms import CarForm
 from .models import Car
 from django.contrib.auth.decorators import login_required
-
+from login.decorators import allowed_users
 # Create your views here.
+
+from django.shortcuts import render
 
 @login_required(login_url='iniciar_sesion')
 def index(request):
-    return render(request, 'index.html')
+    context = {
+        # Agrega los datos que deseas pasar a la plantilla 'index.html'
+    }
+    return render(request, 'index.html', context)
 
 @login_required(login_url='iniciar_sesion')
+@allowed_users(allowed_roles=['admin'])
 def create_car(request):
+    context = {}  # Puedes agregar datos adicionales al contexto si es necesario
+
     if request.method == 'POST':
         form = CarForm(request.POST)
         if form.is_valid():
-            print('hola')
             form.save()
-            #return redirect('car_list')  # Redirecciona a la lista de carros después de guardar
+            # return redirect('car_list')
     else:
-        print('HOla2')
         form = CarForm()
-    
-    return render(request, 'form.html', {'form': form})
+
+    context['form'] = form  # Agrega el formulario al contexto
+    return render(request, 'form.html', context)
 
 @login_required(login_url='iniciar_sesion')
 def list_car(request):
     vehiculos = Car.objects.all()
-    return render(request, 'list_car.html', {'vehiculos':vehiculos})
+    context = {'vehiculos': vehiculos}  # Agrega los vehículos al contexto
+    return render(request, 'list_car.html', context)

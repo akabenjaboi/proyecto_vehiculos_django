@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 
+
 def no_negative_validator(value):
     if value < 0:
         raise ValidationError('El número no puede ser negativo.')
@@ -27,6 +28,13 @@ class Car(models.Model):
     precio = models.IntegerField(validators=[no_negative_validator])
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        permissions = (
+            ("visualizar_vehiculos","visualizar_vehiculos"),
+        )
     
+
     def __str__(self):
         return f"{self.marca} {self.modelo}"
+
